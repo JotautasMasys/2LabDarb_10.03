@@ -46,12 +46,11 @@ public class MainActivity extends AppCompatActivity {
         textCounter = new TextCounter();
     }
 
-    public void onBtnCountClick(View view) {
+    public void onButtonCountClick(View view) {
         String selectedItem = this.spinSelectionOptions.getSelectedItem().toString();
         if(selectedItem.equalsIgnoreCase("Symbols")){
             int result = TextCounter.countSymbols(this.editUserInput.getText().toString());
             Log.i("CountResult", String.valueOf(result));
-
             this.tvMain.setText(String.valueOf(result));
         }
         else if(selectedItem.equalsIgnoreCase("Words")){
