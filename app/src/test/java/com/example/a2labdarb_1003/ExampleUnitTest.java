@@ -14,4 +14,39 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void testCountSymbols() {
+        String input = "Hello, World!";
+        int result = TextCounter.countSymbols(input);
+        assertEquals(13, result);
+    }
+
+    @Test
+    public void testCountWords() {
+        String input = "This is a sample sentence.";
+        int result = TextCounter.countWords(input);
+        assertEquals(5, result);
+    }
+
+    @Test
+    public void testCountSymbolsWithEmptyString() {
+        String input = "";
+        int result = TextCounter.countSymbols(input);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testCountWordsWithNullInput() {
+        String input = null;
+        int result = TextCounter.countWords(input);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testCountWordsWithEmptyString() {
+        String input = "";
+        int result = TextCounter.countWords(input);
+        assertEquals(0, result);
+    }
 }
