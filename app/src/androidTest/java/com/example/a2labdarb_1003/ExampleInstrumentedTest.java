@@ -2,6 +2,7 @@ package com.example.a2labdarb_1003;
 
 import android.content.Context;
 
+import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -12,6 +13,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -41,7 +43,7 @@ public class ExampleInstrumentedTest {
     public void testCountSymbols() {
         Espresso.onView(ViewMatchers.withId(R.id.editUserInput)).perform(ViewActions.typeText("Hello, World!"));
         Espresso.onView(ViewMatchers.withId(R.id.spinSelectionOptions)).perform(ViewActions.click());
-        Espresso.onData(ViewMatchers.hasToString("Symbols")).perform(ViewActions.click());
+        Espresso.onData(ViewMatchers.hasSibling("Symbols")).perform(ViewActions.click());
 
         Espresso.onView(ViewMatchers.withId(R.id.tvMain)).check(ViewAssertions.matches(ViewMatchers.withText("13")));
     }
@@ -50,7 +52,7 @@ public class ExampleInstrumentedTest {
     public void testCountWords() {
         Espresso.onView(ViewMatchers.withId(R.id.editUserInput)).perform(ViewActions.typeText("This is a sample sentence."));
         Espresso.onView(ViewMatchers.withId(R.id.spinSelectionOptions)).perform(ViewActions.click());
-        Espresso.onData(ViewMatchers.hasToString("Words")).perform(ViewActions.click());
+        Espresso.onData(ViewMatchers.hasSibling("Words")).perform(ViewActions.click());
 
         Espresso.onView(ViewMatchers.withId(R.id.tvMain)).check(ViewAssertions.matches(ViewMatchers.withText("5")));
     }
